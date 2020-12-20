@@ -1,0 +1,16 @@
+version: '3'
+services:
+  app:
+    build:
+      #TODO mkose making a docker file is best practice?
+      #TODO mkose why every image is over 480 MB
+      ./docker
+    container_name: how-many-fps
+    restart: always
+    links:
+      - mongodb
+  mongodb:
+    container_name: mongodb
+    image: library/mongo:latest
+    ports:
+      - "27017:27017"
