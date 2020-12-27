@@ -1,6 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import styled, {css} from 'styled-components';
+import {GameType} from "./types/types";
+import Game from "./components/Game";
 
 const MainDiv = styled.div`
 `
@@ -17,13 +19,32 @@ const StyledInput = styled.input`
     height: 2rem;
 `
 
-function Main() {
+const Main = () => {
+    const [gameList, setGameList] = useState<GameType[]>([]);
+
+    const onInputChange = (value: React.ChangeEvent<HTMLInputElement>) => {
+        console.log("value: ", value);
+        fetch("http://localhost:8080/getGamesByName", {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({name: value.target.value})
+        }).then(response => {
+            return response.json();
+        }).then(responseData => {
+            console.log("response: ", responseData)
+            const list = responseData.body as GameType[];
+            setGameList(list);
+            console.log("gameList ", gameList);
+        });
+    }
+
     return (
         <MainDiv>
             <Title>search games you want to see</Title>
-            <StyledInput type="text"/>
+            <StyledInput onChange={value => onInputChange(value)}/>
+            <Game gameList={gameList}/>
         </MainDiv>
-    );
+    )
 }
 
 export default Main;

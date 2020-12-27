@@ -4,8 +4,26 @@ public class Platform {
     private PlatformName name;
     private Resolution resolution;
     private Frame frame;
+    private boolean hasIssues;
+    private boolean isDynamicResolution;
 
     public Platform() {
+    }
+
+    public boolean isHasIssues() {
+        return hasIssues;
+    }
+
+    public void setHasIssues(boolean hasIssues) {
+        this.hasIssues = hasIssues;
+    }
+
+    public boolean isDynamicResolution() {
+        return isDynamicResolution;
+    }
+
+    public void setDynamicResolution(boolean dynamicResolution) {
+        isDynamicResolution = dynamicResolution;
     }
 
     public PlatformName getName() {
