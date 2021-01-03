@@ -11,6 +11,7 @@ public class Game {
     @Id
     public String id;
     public String name;
+    public byte[] image;
     public List<Platform> platform = new ArrayList<>();
 
     public Game() {
@@ -30,6 +31,14 @@ public class Game {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
     }
 
     public List<Platform> getPlatform() {

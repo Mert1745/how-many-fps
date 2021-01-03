@@ -1,12 +1,17 @@
 import React from 'react';
 import './App.css';
 import Main from "./Main";
+import {BrowserRouter, Route, Switch} from "react-router-dom";
 
 function App() {
     return (
-        <div>
-            <Main/>
-        </div>
+        <BrowserRouter>
+            <div>
+                <Switch>
+                    <Route path="/" component={Main} exact/>
+                </Switch>
+            </div>
+        </BrowserRouter>
     );
 }
 

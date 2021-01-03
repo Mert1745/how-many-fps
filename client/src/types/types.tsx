@@ -1,5 +1,6 @@
 export type GameType = {
-    name: string
+    name: string;
+    image: any;
     platform: Platform[];
 }
 

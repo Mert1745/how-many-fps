@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import './App.css';
-import styled, {css} from 'styled-components';
+import styled from 'styled-components';
 import {GameType} from "./types/types";
 import Game from "./components/Game";
 
