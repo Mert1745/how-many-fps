@@ -2,20 +2,21 @@ package com.kose.fps;
 
 public class Platform {
     private PlatformName name;
-    private Resolution resolution;
+    private String resolution;
     private Frame frame;
     private boolean hasIssues;
     private boolean isDynamicResolution;
+    private Mode mode;
 
     public Platform() {
     }
 
-    public boolean isHasIssues() {
-        return hasIssues;
+    public Mode getMode() {
+        return mode;
     }
 
-    public void setHasIssues(boolean hasIssues) {
-        this.hasIssues = hasIssues;
+    public void setMode(Mode mode) {
+        this.mode = mode;
     }
 
     public boolean isDynamicResolution() {
@@ -26,6 +27,14 @@ public class Platform {
         isDynamicResolution = dynamicResolution;
     }
 
+    public boolean isHasIssues() {
+        return hasIssues;
+    }
+
+    public void setHasIssues(boolean hasIssues) {
+        this.hasIssues = hasIssues;
+    }
+
     public PlatformName getName() {
         return name;
     }
@@ -34,11 +43,11 @@ public class Platform {
         this.name = name;
     }
 
-    public Resolution getResolution() {
+    public String getResolution() {
         return resolution;
     }
 
-    public void setResolution(Resolution resolution) {
+    public void setResolution(String resolution) {
         this.resolution = resolution;
     }
 

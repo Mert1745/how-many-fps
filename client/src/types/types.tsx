@@ -6,29 +6,28 @@ export type GameType = {
 
 type Platform = {
     name: PlatformName;
-    resolution: Resolution;
+    resolution: string;
     frame: Frame;
     hasIssues?: boolean;
     isDynamicResolution?: boolean;
+    mode?: Mode;
 }
 
-enum PlatformName {
-    PLAYSTATION_5 = "PLAYSTATION 5",
-    XBOX_SERIES_S = "XBOX SERIES X",
-    XBOX_SERIES_X = "XBOX SERIES S"
+export enum PlatformName {
+    PLAYSTATION_5 = "PLAYSTATION_5",
+    XBOX_SERIES_S = "XBOX_SERIES_S",
+    XBOX_SERIES_X = "XBOX_SERIES_X"
 }
 
-enum Resolution {
-    _1080P = "1080P",
-    _2K = "2K",
-    _4K = "4K",
-    _8K = "8K"
+export enum Mode {
+    PERFORMANCE = "PERFORMANCE",
+    QUALITY = "QUALITY",
 }
 
-enum Frame {
-    _30 ="30 FPS",
-    _60 ="60 FPS",
-    _120 ="120 FPS",
+export enum Frame {
+    _30 = "_30",
+    _60 = "_60",
+    _120 ="_120",
 }
 
 
