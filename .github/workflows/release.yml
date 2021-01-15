@@ -1,0 +1,40 @@
+name: "Release Workflow - Build OCI Image"
+on:
+  release:
+    types:
+      - released
+
+jobs:
+  build-image:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v2
+
+      - name: "Set up JDK"
+        uses: actions/setup-java@v1
+        with:
+          java-version: "15"
+
+      - name: "Cache Maven packages"
+        uses: actions/cache@v2
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-m2
+
+      - name: "Get the release version"
+        id: get_version
+        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
+
+      - name: "Build Image with Spring Boot Maven Plugin"
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          TAG_NAME: ${{ steps.get_version.outputs.VERSION }}
+          IMAGE_NAME: docker.pkg.github.com/${{ github.repository }}/backend:${{ steps.get_version.outputs.VERSION }}
+        run: mvn spring-boot:build-image
+          -Dspring-boot.build-image.imageName=$IMAGE_NAME
+          -Ddocker.publishRegistry.url=docker.pkg.github.com
+          -Ddocker.registry.username=$GITHUB_TOKEN
+          -Ddocker.registry.password=$GITHUB_TOKEN
+          -Dspring-boot.build-image.publish=true
