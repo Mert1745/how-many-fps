@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Frame, GameType, PlatformName} from "../types/types";
+import {GameType, PlatformName} from "../types/types";
 import {getPlatformFrameBar, getPlatformName, getPlatformsGiraffe} from "../types/utils";
 
 type GameProps = {
@@ -8,18 +8,22 @@ type GameProps = {
 }
 
 const MainDiv = styled.div`
+  width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
 `
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<{ numberOfPlatform: number }>`
   display: flex;
   padding: 0.5rem;
-  margin: 1rem auto 0 auto; //top right bottom left
+  margin-top: 1rem; //top right bottom left
   background-color: cornsilk;
   border-style: ridge;
   border-width: 1px;
   border-color: #282c34;
+
+  width: ${props => props.numberOfPlatform > 3 ? "100%" : "48%"};
 `
 
 const LeftBlock = styled.div`
@@ -44,14 +48,16 @@ const GameNameText = styled.p`
 `
 
 const RightBlock = styled.div`
+  width: 100%;
   display: flex;
-  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 `
 
 const PlatformColumn = styled.div`
   display: flex;
   flex-direction: column;
-  margin-left: 1rem;
+  margin: auto;
 `
 
 const PlatformNameDiv = styled.div<{ name: PlatformName }>`
@@ -83,7 +89,7 @@ const GameModeDiv = styled.div`
 const Center = styled.div`
   display: flex;
   flex-direction: row;
-  margin: 0.5rem 0;
+  margin: 0.5rem auto;
 `
 
 const Giraffe = styled.img`
@@ -112,7 +118,7 @@ const Game = (props: GameProps) => {
         <MainDiv>
             {props.gameList !== null && props.gameList?.length !== 0 &&
             props.gameList?.map(game =>
-                <Wrapper>
+                <Wrapper numberOfPlatform={game.platform.length}>
                     {/*TODO mkose not found resmi ekle*/}
                     <LeftBlock>
                         <Image src={"data:image/jpg;base64, " + game.image} alt={game.name}/>
@@ -125,8 +131,7 @@ const Game = (props: GameProps) => {
                                     {platform.mode && (<GameModeDiv>{platform.mode.toLowerCase()}</GameModeDiv>)}
                                 </PlatformNameDiv>
                                 <Center>
-                                    <Giraffe
-                                        src={getPlatformsGiraffe(platform.name)}/>
+                                    <Giraffe src={getPlatformsGiraffe(platform.name)}/>
                                     <Bar src={getPlatformFrameBar(platform.frame)}/>
                                 </Center>
                                 <ResolutionText>{platform.resolution}</ResolutionText>
