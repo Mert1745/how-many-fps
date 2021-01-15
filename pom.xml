@@ -16,6 +16,9 @@
 
     <properties>
         <java.version>15</java.version>
+        <docker.registry.url>docker.pkg.github.com</docker.registry.url>
+        <docker.registry.username/>
+        <docker.registry.password/>
     </properties>
 
     <dependencies>
@@ -46,6 +49,15 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <docker>
+                        <publishRegistry>
+                            <url>${docker.registry.url}</url>
+                            <username>${docker.registry.username}</username>
+                            <password>${docker.registry.password}</password>
+                        </publishRegistry>
+                    </docker>
+                </configuration>
             </plugin>
         </plugins>
     </build>
