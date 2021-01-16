@@ -1,9 +1,9 @@
 import React from 'react';
-import mainGiraffe from "../img/temp-main-screen-giraffe.jpg";
 import styled from "styled-components";
 import title from "../img/title.png";
 import Game from "./Game";
 import {GameType} from "../types/types";
+import logo from "../img/logo.png";
 
 type Props = {
     onInputChange: any;
@@ -22,7 +22,7 @@ const SearchDiv = styled.div`
   display: flex;
   margin-bottom: 0;
   background: aliceblue;
-  padding: 1rem;
+  padding: 0.5rem;
   border-bottom: ridge 2px;
 `
 
@@ -30,16 +30,27 @@ const LeftSideDiv = styled.div`
   display: flex;
 `
 
-const LogoImage = styled.img`
+const LogoWrapper = styled.div`
   cursor: pointer;
   display: flex;
   width: 25%;
   margin: 0;
 `
 
+const LogoImage = styled.img`
+    max-width: 20%;
+`
+
+const TitleImage = styled.img`
+  max-width: 80%;
+  margin-top: auto;
+  margin-bottom: auto;
+`
+
 const StyledInput = styled.input`
   display: block;
-  margin: 0;
+  margin-top: auto;
+  margin-bottom: auto;
   width: 25%;
   height: 2.5rem;
 `
@@ -77,8 +88,10 @@ const SearchScreen = (props: Props) => {
             <MainDiv>
                 <SearchDiv>
                     <LeftSideDiv>
-                        <LogoImage src={title} alt={"title"}
-                                   onClick={() => window.location.pathname = "/"}/>
+                        <LogoWrapper onClick={() => window.location.pathname = "/"}>
+                            <LogoImage src={logo} alt="logo"/>
+                            <TitleImage src={title} alt="title"/>
+                        </LogoWrapper>
                         <StyledInput onChange={value => props.onInputChange(value)}
                                      placeholder="search for games"
                                      autoFocus={true} defaultValue={props.inputValue}/>

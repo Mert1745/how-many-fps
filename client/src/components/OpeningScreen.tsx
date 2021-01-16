@@ -2,6 +2,7 @@ import React from 'react';
 import mainGiraffe from "../img/temp-main-screen-giraffe.jpg";
 import styled from "styled-components";
 import title from "../img/title.png";
+import logo from "../img/logo.png";
 
 type Props = {
     onInputChange: any;
@@ -25,11 +26,21 @@ const SearchDiv = styled.div`
   margin-bottom: 15%;
 `
 
-const LogoImage = styled.img`
-  cursor: pointer;
+const LogoWrapper = styled.div`
   display: flex;
   width: 50%;
+  max-width: 50%;
   margin: 0 auto 1rem auto;
+`
+
+const TitleImage = styled.img`
+  max-width: 80%;
+  margin-top: auto;
+  margin-bottom: auto;
+`
+
+const LogoImage = styled.img`
+  max-width: 20%;
 `
 
 const StyledInput = styled.input`
@@ -73,12 +84,14 @@ const OpeningScreen = (props: Props) => {
             <MainDiv>
                 <MainGiraffeImage src={mainGiraffe} alt={"mainGiraffe"}/>
                 <SearchDiv>
-                    <LogoImage src={title} alt={"title"}
-                               onClick={() => window.location.pathname = "/"}/>
+                    <LogoWrapper>
+                        <LogoImage src={logo} alt="logo"/>
+                        <TitleImage src={title} alt="title"/>
+                    </LogoWrapper>
                     <StyledInput onChange={value => props.onInputChange(value)}
                                  placeholder="search for games"/>
                     <IntroductionText>Giraffe's Neck is a simple web site that shows resolution and FPS
-                        values of the games that are in PlayStation 5 or Xbox Series X|S. Wanna see how it works?
+                        values of the games that are in PlayStation 5 and/or Xbox Series X|S. Wanna see how it works?
                         Just type something and see how long your games giraffes neck</IntroductionText>
                     <DirectionsDiv>
                         <Link>What is FPS&nbsp;</Link>
