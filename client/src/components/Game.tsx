@@ -131,7 +131,7 @@ const Game = (props: GameProps) => {
                                     {platform.mode && (<GameModeDiv>{platform.mode.toLowerCase()}</GameModeDiv>)}
                                 </PlatformNameDiv>
                                 <Center>
-                                    <Giraffe src={getPlatformsGiraffe(platform.name)}/>
+                                    <Giraffe src={getPlatformsGiraffe(platform.name, platform.frame)}/>
                                     <Bar src={getPlatformFrameBar(platform.frame)}/>
                                 </Center>
                                 <ResolutionText>{platform.resolution}</ResolutionText>
