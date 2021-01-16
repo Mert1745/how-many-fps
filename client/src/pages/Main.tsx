@@ -1,17 +1,11 @@
 import React, {useState} from 'react';
-import './App.css';
-import styled from 'styled-components';
-import {GameType} from "./types/types";
-import OpeningScreen from "./components/OpeningScreen";
-import SearchScreen from "./components/SearchScreen";
+import '../App.css';
+import {GameType} from "../types/types";
+import OpeningScreen from "../components/OpeningScreen";
+import SearchScreen from "../components/SearchScreen";
 
 
-const Footer = styled.div`
-  background: #61dafb;
-  height: 300px;
-`
 let myTimeout: NodeJS.Timeout;
-
 const Main = () => {
     const [gameList, setGameList] = useState<GameType[]>([]);
     const [inputDirty, setInputDirty] = useState(false);

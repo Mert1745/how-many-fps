@@ -4,6 +4,7 @@ import title from "../img/title.png";
 import Game from "./Game";
 import {GameType} from "../types/types";
 import logo from "../img/logo.png";
+import Footer from "./Footer";
 
 type Props = {
     onInputChange: any;
@@ -16,6 +17,7 @@ const MainDiv = styled.div`
   flex-direction: column;
   min-height: 100vh;
   background: blanchedalmond;
+  padding-bottom: 1rem;
 `
 
 const SearchDiv = styled.div`
@@ -38,7 +40,7 @@ const LogoWrapper = styled.div`
 `
 
 const LogoImage = styled.img`
-    max-width: 20%;
+  max-width: 20%;
 `
 
 const TitleImage = styled.img`
@@ -64,7 +66,9 @@ const DirectionsDiv = styled.div`
   cursor: pointer;
 `
 
-const Link = styled.span`
+const Link = styled.a`
+  color: cadetblue;
+  text-decoration: none;
   &:hover {
     text-decoration: underline;
   }
@@ -88,7 +92,7 @@ const SearchScreen = (props: Props) => {
             <MainDiv>
                 <SearchDiv>
                     <LeftSideDiv>
-                        <LogoWrapper onClick={() => window.location.pathname = "/"}>
+                        <LogoWrapper onClick={() => window.location.href = ""}>
                             <LogoImage src={logo} alt="logo"/>
                             <TitleImage src={title} alt="title"/>
                         </LogoWrapper>
@@ -97,17 +101,18 @@ const SearchScreen = (props: Props) => {
                                      autoFocus={true} defaultValue={props.inputValue}/>
                     </LeftSideDiv>
                     <DirectionsDiv>
-                        <Link>FAQ</Link>
+                        <Link href={"/about"}>FAQ</Link>
                         <Divider>|</Divider>
                         <Link>What is FPS</Link>
                         <Divider>|</Divider>
-                        <Link>About & Contact Us</Link>
+                        <Link href={"/about"}>About & Contact Us</Link>
                     </DirectionsDiv>
                 </SearchDiv>
                 <GameWrapper>
                     <Game gameList={props.gameList}/>
                 </GameWrapper>
             </MainDiv>
+            <Footer/>
         </>
     );
 }

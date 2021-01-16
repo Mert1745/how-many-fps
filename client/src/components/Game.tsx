@@ -135,6 +135,7 @@ const Game = (props: GameProps) => {
                                     <Bar src={getPlatformFrameBar(platform.frame)}/>
                                 </Center>
                                 <ResolutionText>{platform.resolution}</ResolutionText>
+                                {/*    TODO mkose add hasIssues image*/}
                             </PlatformColumn>
                         )}
                     </RightBlock>
