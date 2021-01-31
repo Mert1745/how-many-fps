@@ -81,7 +81,7 @@ const Divider = styled.span`
 `
 
 const GameWrapper = styled.div`
-  width: 71%;
+  width: 75%;
   display: inline-block;
   margin: 0 auto;
 `

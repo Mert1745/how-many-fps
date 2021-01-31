@@ -34,7 +34,7 @@ public class GameController {
 
 
     /**
-     * @param gameList changes the specific items (items that have few platforms) index
+     * changes the specific items (items that have few platforms) index
      *                 so that they can be in one line at screen
      */
     private void sortListByPlatformSize(List<Game> gameList) {

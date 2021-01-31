@@ -17,7 +17,7 @@ const MainDiv = styled.div`
 const Wrapper = styled.div<{ numberOfPlatform: number }>`
   display: flex;
   padding: 0.5rem;
-  margin-top: 1rem; //top right bottom left
+  margin-top: 1.5rem;
   background-color: cornsilk;
   border-style: ridge;
   border-width: 1px;

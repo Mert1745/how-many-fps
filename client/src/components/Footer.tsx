@@ -42,7 +42,7 @@ const Footer = () => {
                 <a href={"/about"}>Contact Us</a>
             </LeftDiv>
             <RightDiv>
-                <label>© 2021 GiraffesNeckFPS.com</label>
+                <label>© {new Date().getUTCFullYear()} GiraffesNeckFPS.com</label>
                 <label>Powered By Köse Siblings</label>
             </RightDiv>
         </Wrapper>
