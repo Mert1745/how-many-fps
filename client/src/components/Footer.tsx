@@ -39,14 +39,14 @@ const Footer = () => {
             <LeftDiv>
                 <a href={"/about"}>About</a>
                 <a href={"/about"}>FAQ</a>
-                <a href={"/about"}>Contact Us</a>
+                <a href="mailto:mertkose1745@gmail.com">Contact Us</a>
             </LeftDiv>
             <RightDiv>
-                <label>© {new Date().getUTCFullYear()} GiraffesNeckFPS.com</label>
+                <label>© {new Date().getUTCFullYear()} GiraffesNeck.com</label>
                 <label>Powered By Köse Siblings</label>
             </RightDiv>
         </Wrapper>
     );
 }
 
-export default Footer
+export default Footer;

@@ -16,14 +16,14 @@ const MainDiv = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background: blanchedalmond;
+  background: #edd9ff;
   padding-bottom: 1rem;
 `
 
 const SearchDiv = styled.div`
   display: flex;
   margin-bottom: 0;
-  background: aliceblue;
+  background: #fff9d9;
   padding: 0.5rem;
   border-bottom: ridge 2px;
 `
@@ -101,11 +101,11 @@ const SearchScreen = (props: Props) => {
                                      autoFocus={true} defaultValue={props.inputValue}/>
                     </LeftSideDiv>
                     <DirectionsDiv>
-                        <Link href={"/about"}>FAQ</Link>
+                        <Link href={"/about"}>About & FAQ</Link>
                         <Divider>|</Divider>
-                        <Link>What is FPS</Link>
+                        <Link href={"/about#what-is-fps"}>What is FPS</Link>
                         <Divider>|</Divider>
-                        <Link href={"/about"}>About & Contact Us</Link>
+                        <Link href={"mailto:mertkose1745@gmail.com"}>Contact Us</Link>
                     </DirectionsDiv>
                 </SearchDiv>
                 <GameWrapper>

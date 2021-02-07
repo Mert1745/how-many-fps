@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.Collections;
 import java.util.List;
 
 //TODO mkose CrossOrigin'i düzelt
@@ -24,8 +25,8 @@ public class GameController {
     public FPSResponseBuilder<List<Game>> getGamesByName(@RequestBody Game game) {
         List<Game> gameList = repository.findByNameRegex(String.format(".*%s.*", game.getName()));
 
+        Collections.shuffle(gameList);
         sortListByPlatformSize(gameList);
-
         if (gameList.isEmpty()) {
             return FPSResponseBuilder.<List<Game>>getInstance().status(HttpStatus.NOT_FOUND).body(null);
         }
