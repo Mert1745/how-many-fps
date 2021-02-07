@@ -13,7 +13,7 @@ type Props = {
 const MainDiv = styled.div`
   display: flex;
   min-height: 100vh;
-  background: #edd9ff;
+  background: #e0fcff;
 `
 
 const MainGiraffeImage = styled.img`
@@ -43,6 +43,8 @@ const TitleImage = styled.img`
 
 const LogoImage = styled.img`
   max-width: 20%;
+  border-radius: 15px 5px;
+  box-shadow: -3px 6px 8px #888888;
 `
 
 const StyledInput = styled.input`
@@ -53,11 +55,15 @@ const StyledInput = styled.input`
   font-size: 17px;
   font-family: PoppinsExtraLight, sans-serif;
   padding-left: 0.5rem;
+  border: 1px solid;
+  border-radius: 15px 1px;
+  outline: none;
 `
 
 const IntroductionText = styled.p`
   font-family: PoppinsExtraLight, sans-serif;
-  font-size: 15px;
+  font-size: 17px;
+  font-weight: bold;
   text-align: center;
   margin: 5% 20% 2%;
 `
@@ -71,6 +77,7 @@ const DirectionsDiv = styled.nav`
 const Link = styled.a`
   color: cadetblue;
   text-decoration: none;
+  font-size: 17px;
 
   &:hover {
     text-decoration: underline;

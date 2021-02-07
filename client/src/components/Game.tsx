@@ -16,12 +16,11 @@ const MainDiv = styled.div`
 
 const Wrapper = styled.div<{ numberOfPlatform: number }>`
   display: flex;
-  padding: 0.5rem;
+  padding: 0.75rem;
   margin-top: 1.5rem;
   background-color: cornsilk;
-  border-style: ridge;
-  border-width: 1px;
-  border-color: #282c34;
+  box-shadow: 5px 10px 8px #888888;
+  border-radius: 15px;
 
   width: ${props => props.numberOfPlatform > 3 ? "100%" : "48%"};
 `
@@ -34,8 +33,7 @@ const LeftBlock = styled.div`
 const Image = styled.img`
   width: 150px;
   height: 225px;
-  border-style: groove;
-  border-width: 1px;
+  box-shadow: 3px 6px 8px #888888;
 `
 
 const GameNameText = styled.p`

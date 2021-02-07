@@ -19,13 +19,15 @@ const MainDiv = styled.div`
   background: #edd9ff;
   padding-bottom: 1rem;
 `
+const SearchDivWrapper = styled.div`
+  display: flex;
+`
 
 const SearchDiv = styled.div`
   display: flex;
-  margin-bottom: 0;
-  background: #fff9d9;
+  margin-bottom: auto;
+  background: #fffbe8;
   padding: 0.5rem;
-  border-bottom: ridge 2px;
 `
 
 const LeftSideDiv = styled.div`
@@ -40,11 +42,15 @@ const LogoWrapper = styled.div`
 `
 
 const LogoImage = styled.img`
-  max-width: 20%;
+  max-width: 4.5%;
+  margin-left: 0.5rem;
+  border-radius: 15px 5px;
+  box-shadow: -3px 6px 8px #888888;
+  cursor: pointer;
 `
 
 const TitleImage = styled.img`
-  max-width: 80%;
+  max-width: 95%;
   margin-top: auto;
   margin-bottom: auto;
 `
@@ -55,6 +61,7 @@ const StyledInput = styled.input`
   margin-bottom: auto;
   width: 25%;
   height: 2.5rem;
+  outline: none;
 `
 
 const DirectionsDiv = styled.div`
@@ -64,6 +71,7 @@ const DirectionsDiv = styled.div`
   white-space: nowrap;
   color: cadetblue;
   cursor: pointer;
+  padding-right: 1rem;
 `
 
 const Link = styled.a`
@@ -90,24 +98,26 @@ const SearchScreen = (props: Props) => {
     return (
         <>
             <MainDiv>
-                <SearchDiv>
-                    <LeftSideDiv>
-                        <LogoWrapper onClick={() => window.location.href = ""}>
-                            <LogoImage src={logo} alt="logo"/>
-                            <TitleImage src={title} alt="title"/>
-                        </LogoWrapper>
-                        <StyledInput onChange={value => props.onInputChange(value)}
-                                     placeholder="search for games"
-                                     autoFocus={true} defaultValue={props.inputValue}/>
-                    </LeftSideDiv>
-                    <DirectionsDiv>
-                        <Link href={"/about"}>About & FAQ</Link>
-                        <Divider>|</Divider>
-                        <Link href={"/about#what-is-fps"}>What is FPS</Link>
-                        <Divider>|</Divider>
-                        <Link href={"mailto:mertkose1745@gmail.com"}>Contact Us</Link>
-                    </DirectionsDiv>
-                </SearchDiv>
+                <SearchDivWrapper>
+                    <LogoImage src={logo} alt="logo" onClick={() => window.location.href = ""}/>
+                    <SearchDiv>
+                        <LeftSideDiv>
+                            <LogoWrapper onClick={() => window.location.href = ""}>
+                                <TitleImage src={title} alt="title"/>
+                            </LogoWrapper>
+                            <StyledInput onChange={value => props.onInputChange(value)}
+                                         placeholder="search for games"
+                                         autoFocus={true} defaultValue={props.inputValue}/>
+                        </LeftSideDiv>
+                        <DirectionsDiv>
+                            <Link href={"/about"}>About & FAQ</Link>
+                            <Divider>|</Divider>
+                            <Link href={"/about#what-is-fps"}>What is FPS</Link>
+                            <Divider>|</Divider>
+                            <Link href={"mailto:mertkose1745@gmail.com"}>Contact Us</Link>
+                        </DirectionsDiv>
+                    </SearchDiv>
+                </SearchDivWrapper>
                 <GameWrapper>
                     <Game gameList={props.gameList}/>
                 </GameWrapper>
