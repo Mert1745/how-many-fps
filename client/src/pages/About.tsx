@@ -8,15 +8,19 @@ import Footer from "../components/Footer";
 import FAQ from "../components/FAQ";
 
 const MainDiv = styled.div`
-  background-color: #d9ffdb;
+  background: #edd9ff;
+`
+
+const SearchDivWrapper = styled.div`
+  display: flex;
 `
 
 const SearchDiv = styled.div`
   display: flex;
-  margin-bottom: 0;
-  background: #fff9d9;
-  padding: 0.5rem;
-  border-bottom: ridge 2px;
+  width: 100%;
+  margin-bottom: auto;
+  background: #fffbe8;
+  padding: 0.65rem;
 `
 
 const LogoWrapper = styled.div`
@@ -27,7 +31,11 @@ const LogoWrapper = styled.div`
 `
 
 const LogoImage = styled.img`
-  max-width: 20%;
+  max-width: 4.5%;
+  margin-left: 0.5rem;
+  border-radius: 15px 5px;
+  box-shadow: -3px 6px 8px #888888;
+  cursor: pointer;
 `
 
 const TitleImage = styled.img`
@@ -37,23 +45,32 @@ const TitleImage = styled.img`
 `
 
 const AboutSite = styled.div`
-  padding-left: 10%;
-  padding-right: 30%;
+  margin-left: 10%;
+  margin-right: 30%;
+  padding: 0.1rem 5rem 3rem 4rem;
+  box-shadow: 5px 10px 8px #888888;
+  border-radius: 15px;
+  background-color: #fffbe8;
 `
 
 
 const About = () => {
+
+    const onLogoClick = () => {
+        window.location.hash = "/";
+        window.location.pathname = "/";
+    };
+
     return (
         <MainDiv>
-            <SearchDiv>
-                <LogoWrapper onClick={() => {
-                    window.location.hash = "/";
-                    window.location.pathname = "/";
-                }}>
-                    <LogoImage src={logo} alt="logo"/>
-                    <TitleImage src={title} alt="title"/>
-                </LogoWrapper>
-            </SearchDiv>
+            <SearchDivWrapper>
+                <LogoImage src={logo} alt="logo" onClick={onLogoClick}/>
+                <SearchDiv>
+                    <LogoWrapper onClick={onLogoClick}>
+                        <TitleImage src={title} alt="title"/>
+                    </LogoWrapper>
+                </SearchDiv>
+            </SearchDivWrapper>
             <AboutSite>
                 <h1>About</h1>
                 <label>With the 9th generation console releases, games have started to offer more different resolution

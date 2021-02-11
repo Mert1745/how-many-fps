@@ -4,10 +4,11 @@ import styled from "styled-components";
 const Wrapper = styled.div`
   font-family: PoppinsExtraLight, sans-serif;
   display: flex;
-  background: aliceblue;
+  background-color: white;
   justify-content: space-around;
-  min-height: 100px;
+  min-height: 70px;
   border-top: solid 1px;
+  font-weight: bold;
 `
 
 const LeftDiv = styled.div`

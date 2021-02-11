@@ -5,9 +5,11 @@ import styled from "styled-components";
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  padding-left: 10%;
-  padding-right: 30%;
-  padding-bottom: 5%;
+  margin: 1% 30% 2% 10%;
+  padding: 1rem 5rem 3rem 4rem;
+  box-shadow: 5px 10px 8px #888888;
+  border-radius: 15px;
+  background-color: #fffbe8;
 `
 
 const FAQTitle = styled.h1`
@@ -18,8 +20,10 @@ const Question = styled.label`
   font-weight: bold;
   padding-bottom: 0.4rem;
   padding-top: 1.5rem;
+
   & a {
     text-decoration: none;
+
     &:hover {
       text-decoration: underline;
     }
@@ -29,6 +33,7 @@ const Question = styled.label`
 const Answer = styled.label`
   & a {
     text-decoration: none;
+
     &:hover {
       text-decoration: underline;
     }
@@ -58,6 +63,8 @@ const FAQ = () => {
             <Answer>Even though it's so rare, there are scenarios like this. If it has, the game should have an info
                 icon that tells this situation</Answer>
             <Question>Some games are not always 60 FPS (or 30 or 120) but the site says otherwise.</Question>
+            <Answer>Initially we thought every game is either one of 30, 60 or 120 FPS but some aren't so we added info
+                icon that tells this situation if it has</Answer>
             <Question>I can't see the game I'm curious about</Question>
             <Answer>Unfortunately not every game playable on PlayStation 5 and/or Xbox Series X|S can be found our
                 website. Because of backward compatibility feature of consoles, there are lots of games you can
