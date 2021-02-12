@@ -5,9 +5,9 @@ import Game from "./Game";
 import {GameType} from "../types/types";
 import logo from "../img/logo.png";
 import Footer from "./Footer";
-import template from "../img/background-template/template.png";
 import headerTemplate from "../img/background-template/header-template.png";
 import backgroundTemplate from "../img/background-template/main-screen-background.png";
+import ps5_30fps_giraffe from "../img/giraffes/ps5_30fps.png";
 
 
 type Props = {
@@ -21,7 +21,7 @@ const MainDiv = styled.div`
   flex-direction: column;
   min-height: 100vh;
   //background: #edd9ff;
-    background-image: url(${backgroundTemplate});
+  background-image: url(${backgroundTemplate});
   padding-bottom: 1rem;
 `
 const SearchDivWrapper = styled.div`
@@ -83,6 +83,7 @@ const DirectionsDiv = styled.div`
 const Link = styled.a`
   color: cadetblue;
   text-decoration: none;
+
   &:hover {
     text-decoration: underline;
   }
@@ -98,6 +99,20 @@ const GameWrapper = styled.div`
   width: 75%;
   display: inline-block;
   margin: 0 auto;
+`
+
+const GameNotFound = styled.div`
+  text-align: center;
+`
+
+const Giraffe = styled.img`
+  max-width: 100px;
+`
+
+const NotFoundText = styled.p`
+  font-family: PoppinsExtraLight, serif;
+  font-size: 17px;
+  font-weight: bold;
 `
 
 const SearchScreen = (props: Props) => {
@@ -125,7 +140,12 @@ const SearchScreen = (props: Props) => {
                     </SearchDiv>
                 </SearchDivWrapper>
                 <GameWrapper>
-                    <Game gameList={props.gameList}/>
+                    {props.gameList === null ? <GameNotFound>
+                            <Giraffe src={ps5_30fps_giraffe} alt="not-found-giraffe"/>
+                            <NotFoundText>Haven't you found the game you wanted? Just <a
+                                href={"mailto:mertkose1745@gmail.com"}>tell us</a> and we try to add them.</NotFoundText>
+                        </GameNotFound> :
+                        <Game gameList={props.gameList}/>}
                 </GameWrapper>
             </MainDiv>
             <Footer/>

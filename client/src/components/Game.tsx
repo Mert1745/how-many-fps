@@ -120,7 +120,6 @@ const Game = (props: GameProps) => {
             {props.gameList !== null && props.gameList?.length !== 0 &&
             props.gameList?.map(game =>
                 <Wrapper numberOfPlatform={game.platform.length}>
-                    {/*TODO mkose not found resmi ekle*/}
                     <LeftBlock>
                         <Image src={"data:image/jpg;base64, " + game.image} alt={game.name}/>
                         <GameNameText>{game.name}</GameNameText>

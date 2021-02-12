@@ -7,7 +7,6 @@ import WhatIsFPS from "../components/WhatIsFPS";
 import Footer from "../components/Footer";
 import FAQ from "../components/FAQ";
 import mainScreenTemplate from "../img/background-template/main-screen-background.png";
-import boxTemplate from "../img/background-template/game-template.png";
 import headerTemplate from "../img/background-template/header-template.png";
 
 const MainDiv = styled.div`
@@ -54,7 +53,7 @@ const AboutSite = styled.div`
   padding: 0.7rem 5rem 3rem 4rem;
   //box-shadow: 5px 10px 8px #888888;
   border-radius: 15px;
-  background-image: url(${boxTemplate});
+  background-image: url(${headerTemplate});
 `
 
 

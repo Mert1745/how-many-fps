@@ -73,13 +73,12 @@ const IntroductionText = styled.p`
 `
 
 const DirectionsDiv = styled.nav`
-  color: cadetblue;
   display: flex;
   cursor: pointer;
 `
 
 const Link = styled.a`
-  color: cadetblue;
+  color: dimgrey;
   text-decoration: none;
   font-size: 16px;
 

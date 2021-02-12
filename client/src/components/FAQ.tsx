@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
-import boxTemplate from "../img/background-template/game-template.png";
+import boxTemplate from "../img/background-template/header-template.png";
 
 
 const Wrapper = styled.div`
