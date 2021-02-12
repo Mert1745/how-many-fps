@@ -6,9 +6,13 @@ import title from "../img/title.png";
 import WhatIsFPS from "../components/WhatIsFPS";
 import Footer from "../components/Footer";
 import FAQ from "../components/FAQ";
+import mainScreenTemplate from "../img/background-template/main-screen-background.png";
+import boxTemplate from "../img/background-template/game-template.png";
+import headerTemplate from "../img/background-template/header-template.png";
 
 const MainDiv = styled.div`
-  background: #edd9ff;
+  background-image: url(${mainScreenTemplate});
+  font-family: PoppinsExtraLight, sans-serif;
 `
 
 const SearchDivWrapper = styled.div`
@@ -19,7 +23,7 @@ const SearchDiv = styled.div`
   display: flex;
   width: 100%;
   margin-bottom: auto;
-  background: #fffbe8;
+  background-image: url(${headerTemplate});
   padding: 0.65rem;
 `
 
@@ -47,10 +51,10 @@ const TitleImage = styled.img`
 const AboutSite = styled.div`
   margin-left: 10%;
   margin-right: 30%;
-  padding: 0.1rem 5rem 3rem 4rem;
-  box-shadow: 5px 10px 8px #888888;
+  padding: 0.7rem 5rem 3rem 4rem;
+  //box-shadow: 5px 10px 8px #888888;
   border-radius: 15px;
-  background-color: #fffbe8;
+  background-image: url(${boxTemplate});
 `
 
 

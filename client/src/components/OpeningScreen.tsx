@@ -5,6 +5,8 @@ import title from "../img/title.png";
 import logo from "../img/logo.png";
 import Footer from "./Footer";
 import WhatIsFPS from "./WhatIsFPS";
+import template from "../img/background-template/main-screen-background.png";
+
 
 type Props = {
     onInputChange: any;
@@ -13,7 +15,9 @@ type Props = {
 const MainDiv = styled.div`
   display: flex;
   min-height: 100vh;
-  background: #e0fcff;
+  //background: #e0fcff;
+  background-image: url(${template});
+
 `
 
 const MainGiraffeImage = styled.img`
@@ -61,9 +65,9 @@ const StyledInput = styled.input`
 `
 
 const IntroductionText = styled.p`
-  font-family: PoppinsExtraLight, sans-serif;
+  font-family: NanumGothicRegular, sans-serif;
   font-size: 17px;
-  font-weight: bold;
+  line-height: 1.5rem;
   text-align: center;
   margin: 5% 20% 2%;
 `
@@ -77,7 +81,7 @@ const DirectionsDiv = styled.nav`
 const Link = styled.a`
   color: cadetblue;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 16px;
 
   &:hover {
     text-decoration: underline;

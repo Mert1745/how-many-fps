@@ -4,13 +4,10 @@ import fpsGif from "../gif/fps-difference.gif";
 
 
 const WhatIsFPSWrapper = styled.section`
-  background: #ffded9;
+  background: ghostwhite;
   display: flex;
   justify-content: space-between;
-  padding-left: 15%;
-  padding-right: 15%;
-  border-top: solid 1px;
-  border-color: darkgray;
+  padding: 2% 15% 2% 13%;
   min-height: 350px;
 `
 
@@ -23,11 +20,9 @@ const FPSLeftDiv = styled.div`
 `
 
 const FPSTitle = styled.span`
-  font-size: 28px;
+  font-size: 35px;
   font-weight: 900;
-  color: darkslateblue;
-  border: solid 1px;
-  text-align: center;
+  color: #483d8b;
 `
 
 const MainText = styled.span`

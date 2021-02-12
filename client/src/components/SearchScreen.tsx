@@ -5,6 +5,10 @@ import Game from "./Game";
 import {GameType} from "../types/types";
 import logo from "../img/logo.png";
 import Footer from "./Footer";
+import template from "../img/background-template/template.png";
+import headerTemplate from "../img/background-template/header-template.png";
+import backgroundTemplate from "../img/background-template/main-screen-background.png";
+
 
 type Props = {
     onInputChange: any;
@@ -16,7 +20,8 @@ const MainDiv = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background: #edd9ff;
+  //background: #edd9ff;
+    background-image: url(${backgroundTemplate});
   padding-bottom: 1rem;
 `
 const SearchDivWrapper = styled.div`
@@ -26,7 +31,8 @@ const SearchDivWrapper = styled.div`
 const SearchDiv = styled.div`
   display: flex;
   margin-bottom: auto;
-  background: #fffbe8;
+  //background: #fffbe8;
+  background-image: url(${headerTemplate});
   padding: 0.5rem;
 `
 

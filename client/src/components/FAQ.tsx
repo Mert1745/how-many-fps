@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
+import boxTemplate from "../img/background-template/game-template.png";
 
 
 const Wrapper = styled.div`
@@ -7,9 +8,9 @@ const Wrapper = styled.div`
   flex-direction: column;
   margin: 1% 30% 2% 10%;
   padding: 1rem 5rem 3rem 4rem;
-  box-shadow: 5px 10px 8px #888888;
+  //box-shadow: 5px 10px 8px #888888;
   border-radius: 15px;
-  background-color: #fffbe8;
+  background-image: url(${boxTemplate});
 `
 
 const FAQTitle = styled.h1`
@@ -55,9 +56,8 @@ const FAQ = () => {
                 questions and suggestions feel free to <a href={"mailto:mertkose1745@gmail.com"}>contact us</a>. We want
                 to have a great user experience so we are open to every comment.</Answer>
             <Question>Where do you get data from? How can i trust them?</Question>
-            <Answer>We do not have any kit or tool to test games (We can't even afford every game :( ) So we try to find
-                on
-                the internet, mostly from the reliable sources such as Digital Foundry etc. </Answer>
+            <Answer>We do not have any kit or tool to test games (We can't even afford to every game) So we try to find
+                on the internet, mostly from the reliable sources such as Digital Foundry etc. </Answer>
             <Question>Some games have more than two modes but I can only see two modes (performance and
                 quality).</Question>
             <Answer>Even though it's so rare, there are scenarios like this. If it has, the game should have an info

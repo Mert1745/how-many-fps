@@ -5,20 +5,21 @@ const Wrapper = styled.div`
   font-family: PoppinsExtraLight, sans-serif;
   display: flex;
   background-color: white;
-  justify-content: space-around;
-  min-height: 70px;
-  border-top: solid 1px;
-  font-weight: bold;
+  justify-content: space-between;
+  padding-left: 13%;
+  padding-right: 14%;
+  min-height: 120px;
 `
 
 const LeftDiv = styled.div`
+  font-family: NanumGothicRegular,serif;
   margin-top: auto;
   margin-bottom: auto;
   
   & a {
     text-decoration: none;
     cursor: pointer;
-    padding-right: 2rem;
+    margin-right: 2.3rem;
     color: black;
 
     &:hover {
@@ -32,6 +33,8 @@ const RightDiv = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  font-size: 14px;
+  font-weight: bold;
 `
 
 const Footer = () => {
@@ -43,8 +46,8 @@ const Footer = () => {
                 <a href="mailto:mertkose1745@gmail.com">Contact Us</a>
             </LeftDiv>
             <RightDiv>
-                <label>© {new Date().getUTCFullYear()} GiraffesNeck.com</label>
-                <label>Powered By Köse Siblings</label>
+                <label style={{fontSize: "17px"}}>© {new Date().getUTCFullYear()} GiraffesNeck.com</label>
+                <label style={{color: "lightcoral"}}>Powered By Köse Siblings</label>
             </RightDiv>
         </Wrapper>
     );

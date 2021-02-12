@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import {GameType, PlatformName} from "../types/types";
 import {getPlatformFrameBar, getPlatformName, getPlatformsGiraffe} from "../types/utils";
+import gameTemplate from "../img/background-template/game-template.png";
+
 
 type GameProps = {
     gameList: GameType[]
@@ -18,7 +20,8 @@ const Wrapper = styled.div<{ numberOfPlatform: number }>`
   display: flex;
   padding: 0.75rem;
   margin-top: 1.5rem;
-  background-color: cornsilk;
+  //background-color: cornsilk;
+  background-image: url(${gameTemplate});
   box-shadow: 5px 10px 8px #888888;
   border-radius: 15px;
 
