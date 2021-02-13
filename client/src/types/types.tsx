@@ -11,6 +11,7 @@ type Platform = {
     hasIssues?: boolean;
     isDynamicResolution?: boolean;
     mode?: Mode;
+    info?: string;
 }
 
 export enum PlatformName {

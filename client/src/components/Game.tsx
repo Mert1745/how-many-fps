@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 import {GameType, PlatformName} from "../types/types";
 import {getPlatformFrameBar, getPlatformName, getPlatformsGiraffe} from "../types/utils";
 import gameTemplate from "../img/background-template/game-template.png";
+import infoIcon from "../img/info-icon.png";
 
 
 type GameProps = {
@@ -103,10 +104,15 @@ const Bar = styled.img`
   height: 180px;
 `
 
+const Bottom = styled.div`
+  display: flex;
+  justify-content: center;
+  position: relative;
+`
+
 const ResolutionText = styled.p`
   font-family: PoppinsExtraLight, sans-serif;
   display: flex;
-  margin: 0.5rem auto;
   font-weight: bold;
   font-size: 22px;
   letter-spacing: 2px;
@@ -114,7 +120,27 @@ const ResolutionText = styled.p`
   padding: 0 1rem;
 `
 
+const InfoImage = styled.img`
+  height: 33px;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 1rem;
+  cursor: pointer;
+`
+
+const InfoDiv = styled.div`
+  border: 2px ridge;
+  background: ghostwhite;
+  font-size: 14px;
+  padding: 0.5rem;
+  position: absolute;
+  right: -80%;
+  top: 25%;
+`
+
 const Game = (props: GameProps) => {
+    const [infoTextSwitch, setInfoText] = useState(false);
+
     return (
         <MainDiv>
             {props.gameList !== null && props.gameList?.length !== 0 &&
@@ -134,8 +160,14 @@ const Game = (props: GameProps) => {
                                     <Giraffe src={getPlatformsGiraffe(platform.name, platform.frame)}/>
                                     <Bar src={getPlatformFrameBar(platform.frame)}/>
                                 </Center>
-                                <ResolutionText>{platform.resolution}</ResolutionText>
-                                {/*    TODO mkose add hasIssues image*/}
+                                <Bottom>
+                                    <ResolutionText>{platform.resolution}</ResolutionText>
+                                    {platform.info &&
+                                    <InfoImage src={infoIcon} onClick={() => setInfoText(!infoTextSwitch)}
+                                               onMouseOver={() => setInfoText(!infoTextSwitch)}
+                                               onMouseLeave={() => setInfoText(!infoTextSwitch)}/>}
+                                    {platform.info && infoTextSwitch && <InfoDiv>{platform.info}</InfoDiv>}
+                                </Bottom>
                             </PlatformColumn>
                         )}
                     </RightBlock>

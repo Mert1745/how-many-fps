@@ -7,6 +7,7 @@ public class Platform {
     private boolean hasIssues;
     private boolean isDynamicResolution;
     private Mode mode;
+    private String info;
 
     public Platform() {
     }
@@ -57,5 +58,13 @@ public class Platform {
 
     public void setFrame(Frame frame) {
         this.frame = frame;
+    }
+
+    public String getInfo() {
+        return info;
+    }
+
+    public void setInfo(String info) {
+        this.info = info;
     }
 }
