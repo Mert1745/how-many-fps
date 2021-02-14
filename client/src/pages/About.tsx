@@ -48,6 +48,10 @@ const LogoImage = styled.img`
   }
   
   @media only screen and (min-width: 768px) {
+    width: 6.5%;
+  }
+  
+  @media only screen and (min-width: 1366px) {
     width: 4.5%;
   }
 `
