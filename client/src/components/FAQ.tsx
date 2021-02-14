@@ -6,11 +6,15 @@ import boxTemplate from "../img/background-template/header-template.png";
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 1% 30% 2% 10%;
-  padding: 1rem 5rem 3rem 4rem;
-  //box-shadow: 5px 10px 8px #888888;
+  margin: 3%;
+  padding: 1rem 2rem 3rem 2rem;
   border-radius: 15px;
   background-image: url(${boxTemplate});
+
+  @media only screen and (min-width: 768px) {
+    margin: 1% 30% 2% 10%;
+    padding: 1rem 5rem 3rem 4rem;
+  }
 `
 
 const FAQTitle = styled.h1`
@@ -24,6 +28,7 @@ const Question = styled.label`
 
   & a {
     text-decoration: none;
+    font-weight: bold;
 
     &:hover {
       text-decoration: underline;
@@ -34,6 +39,7 @@ const Question = styled.label`
 const Answer = styled.label`
   & a {
     text-decoration: none;
+    font-weight: bold;
 
     &:hover {
       text-decoration: underline;
@@ -88,7 +94,7 @@ const FAQ = () => {
                 environment. So three people.</Answer>
             <Question>Do you keep any data from mine like IP?</Question>
             <Answer>No we do not. Giraffe's Neck is not interested in any of your personal information. You can always
-                investigate <a href="https://github.com/Mert1745/how-many-fps">the source code</a> if you have
+                investigate <a href="https://github.com/Mert1745/how-many-fps">the source code</a> if you have any
                 doubts.</Answer>
         </Wrapper>
     );

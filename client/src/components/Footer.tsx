@@ -6,25 +6,46 @@ const Wrapper = styled.div`
   display: flex;
   background-color: white;
   justify-content: space-between;
-  padding-left: 13%;
-  padding-right: 14%;
+  padding-left: 8%;
+  padding-right: 8%;
   min-height: 120px;
+  font-size: 15px;
+
+  @media only screen and (min-width: 400px) {
+    font-size: 16px;
+  }
+  
+  @media only screen and (min-width: 768px) {
+    padding-left: 10%;
+    padding-right: 14%;
+  }
 `
 
 const LeftDiv = styled.div`
-  font-family: NanumGothicRegular,serif;
+  display: flex;
+  flex-direction: column;
+  font-family: NanumGothicRegular, serif;
   margin-top: auto;
   margin-bottom: auto;
-  
+
   & a {
     text-decoration: none;
     cursor: pointer;
     margin-right: 2.3rem;
     color: black;
+    padding-bottom: 0.5rem;
 
     &:hover {
       text-decoration: underline;
     }
+    
+    @media only screen and (min-width: 450px) {
+      padding-bottom: 0;
+    }
+  }
+
+  @media only screen and (min-width: 450px) {
+    flex-direction: row;
   }
 `
 
@@ -46,8 +67,8 @@ const Footer = () => {
                 <a href="mailto:mertkose1745@gmail.com">Contact Us</a>
             </LeftDiv>
             <RightDiv>
-                <label style={{fontSize: "17px"}}>© {new Date().getUTCFullYear()} GiraffesNeck.com</label>
-                <label style={{color: "lightcoral"}}>Powered By Köse Siblings</label>
+                <label style={{fontSize: "15px"}}>© {new Date().getUTCFullYear()} GiraffesNeck.com</label>
+                <label style={{color: "lightcoral", fontSize: "13px"}}>Powered By Köse Siblings</label>
             </RightDiv>
         </Wrapper>
     );

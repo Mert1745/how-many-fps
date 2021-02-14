@@ -134,8 +134,9 @@ const InfoDiv = styled.div`
   font-size: 14px;
   padding: 0.5rem;
   position: absolute;
-  right: -80%;
-  top: 25%;
+  right: -75%;
+  top: -20%;
+  border-radius: 10px 10px 10px 0;
 `
 
 const Game = (props: GameProps) => {
