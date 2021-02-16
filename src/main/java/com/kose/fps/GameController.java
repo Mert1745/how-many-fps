@@ -41,7 +41,7 @@ public class GameController {
     private void sortListByPlatformSize(List<Game> gameList) {
         int tempIndex = -1;
         for (int i = 0; i < gameList.size(); i++) {
-            if (gameList.get(i).getPlatform().size() > 3) {
+            if (gameList.get(i).getPlatform().size() > 2) {
                 continue;
             }
 

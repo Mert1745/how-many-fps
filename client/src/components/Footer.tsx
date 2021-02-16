@@ -63,7 +63,7 @@ const Footer = () => {
         <Wrapper>
             <LeftDiv>
                 <a href={"/about"}>About</a>
-                <a href={"/about"}>FAQ</a>
+                <a href={"/about#faq"}>FAQ</a>
                 <a href="mailto:mertkose1745@gmail.com">Contact Us</a>
             </LeftDiv>
             <RightDiv>

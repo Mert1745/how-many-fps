@@ -21,39 +21,63 @@ const Wrapper = styled.div<{ numberOfPlatform: number }>`
   display: flex;
   padding: 0.75rem;
   margin-top: 1.5rem;
-  //background-color: cornsilk;
   background-image: url(${gameTemplate});
-  box-shadow: 5px 10px 8px #888888;
+  box-shadow: 5px 5px 8px #888888;
   border-radius: 15px;
+  width: 100%;
 
-  width: ${props => props.numberOfPlatform > 3 ? "100%" : "48%"};
+  
+  @media only screen and (min-width: 642px) {
+    width: ${props => props.numberOfPlatform > 2 ? "100%" : "46%"};
+    box-shadow: 5px 10px 8px #888888;
+  }
+  
+  @media only screen and (min-width: 1024px) {
+    width: ${props => props.numberOfPlatform > 2 ? "100%" : "47%"};
+  }
+
 `
 
-const LeftBlock = styled.div`
+// width: ${props => props.numberOfPlatform > 3 ? "12%" : "24%"};
+const LeftBlock = styled.div<{ numberOfPlatform: number }>`
   display: flex;
   flex-direction: column;
 `
 
-const Image = styled.img`
-  width: 150px;
-  height: 225px;
+const GameCoverImage = styled.img`
+  width: 80px;
   box-shadow: 3px 6px 8px #888888;
+
+  @media only screen and (min-width: 1024px) {
+    width: 120px;
+  }
 `
 
 const GameNameText = styled.p`
   font-family: PoppinsExtraLight, sans-serif;
-  margin: auto;
-  font-size: 17px;
+  font-size: 11px;
   font-weight: bold;
   text-align: center;
-  max-width: 152px;
+  max-width: 80px;
+
+  @media only screen and (min-width: 1024px) {
+    font-size: 14px;
+    //margin: auto;
+    max-width: 120px;
+  }
 `
 
-const RightBlock = styled.div`
-  width: 100%;
+// width: ${props => props.numberOfPlatform > 3 ? "88%" : "76%"};
+const RightBlock = styled.div<{ numberOfPlatform: number }>`
   display: flex;
+  width: 100%;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+
+  @media only screen and (min-width: 768px) {
+    //flex-wrap: nowrap;
+  }
 `
 
 const PlatformColumn = styled.div`
@@ -66,8 +90,14 @@ const PlatformNameDiv = styled.div<{ name: PlatformName }>`
   display: flex;
   position: relative;
   margin: 0 auto;
-  padding: 0.5rem 1rem 0.5rem 1rem;
+  padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+  font-size: 12px;
   font-family: PoppinsExtraLight, sans-serif;
+
+  @media only screen and (min-width: 1024px) {
+    padding: 0.35rem 0.75rem 0.35rem 0.75rem;
+    font-size: 14px;
+  }
 
   background-color: ${props => props.name === PlatformName.PLAYSTATION_5 ? "#2E6DB4" :
           props.name === PlatformName.XBOX_SERIES_X ? "#0f7b0e" : "white"};
@@ -84,24 +114,42 @@ const PlatformNameDiv = styled.div<{ name: PlatformName }>`
 const GameModeDiv = styled.div`
   position: absolute;
   right: 2%;
-  bottom: 0;
-  font-size: 10px;
+  bottom: -3%;
+  font-size: 8px;
+
+  @media only screen and (min-width: 1024px) {
+    font-size: 9px;
+    bottom: -2%;
+  }
 `
 
 const Center = styled.div`
+  height: 50%;
   display: flex;
   flex-direction: row;
   margin: 0.5rem auto;
 `
 
 const Giraffe = styled.img`
-  width: 90px;
-  height: 180px;
+  width: 50px;
+
+  @media only screen and (min-width: 1024px) {
+    width: 60px;
+  }
+  @media only screen and (min-width: 1366px) {
+    width: 75px;
+  }
 `
 
 const Bar = styled.img`
-  width: 90px;
-  height: 180px;
+  width: 50px;
+
+  @media only screen and (min-width: 1024px) {
+    width: 60px;
+  }
+  @media only screen and (min-width: 1366px) {
+    width: 75px;
+  }
 `
 
 const Bottom = styled.div`
@@ -114,14 +162,18 @@ const ResolutionText = styled.p`
   font-family: PoppinsExtraLight, sans-serif;
   display: flex;
   font-weight: bold;
-  font-size: 22px;
+  font-size: 15px;
   letter-spacing: 2px;
   border: 2px ridge;
   padding: 0 1rem;
+
+  @media only screen and (min-width: 1024px) {
+    font-size: 17px;
+  }
 `
 
 const InfoImage = styled.img`
-  height: 33px;
+  height: 24px;
   margin-top: auto;
   margin-bottom: auto;
   margin-left: 1rem;
@@ -134,9 +186,12 @@ const InfoDiv = styled.div`
   font-size: 14px;
   padding: 0.5rem;
   position: absolute;
-  right: -75%;
-  top: -20%;
+  left: -10%;
+  bottom: -30%;
   border-radius: 10px 10px 10px 0;
+  white-space: nowrap;
+  z-index: 20;
+  width: fit-content;
 `
 
 const Game = (props: GameProps) => {
@@ -147,11 +202,11 @@ const Game = (props: GameProps) => {
             {props.gameList !== null && props.gameList?.length !== 0 &&
             props.gameList?.map(game =>
                 <Wrapper numberOfPlatform={game.platform.length}>
-                    <LeftBlock>
-                        <Image src={"data:image/jpg;base64, " + game.image} alt={game.name}/>
+                    <LeftBlock numberOfPlatform={game.platform.length}>
+                        <GameCoverImage src={"data:image/jpg;base64, " + game.image} alt={game.name}/>
                         <GameNameText>{game.name}</GameNameText>
                     </LeftBlock>
-                    <RightBlock>
+                    <RightBlock numberOfPlatform={game.platform.length}>
                         {game.platform.map(platform =>
                             <PlatformColumn>
                                 <PlatformNameDiv name={platform.name}>{getPlatformName(platform.name)}

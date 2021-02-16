@@ -1,13 +1,14 @@
 import React from 'react';
 import styled from "styled-components";
 import fpsGif from "../gif/fps-difference.gif";
+import backgroundTemplate from "../img/background-template/what-is-fps-background-template.png";
 
 
 const WhatIsFPSWrapper = styled.section`
-  background: ghostwhite;
+  background-image: url(${backgroundTemplate});
   display: flex;
   justify-content: space-between;
-  padding: 2% 15% 2% 13%;
+  padding: 2% 10% 2% 10%;
   min-height: 350px;
 `
 
@@ -41,10 +42,10 @@ const Gif = styled.img`
 
 const WhatIsFPS = () => {
     return (
-        <WhatIsFPSWrapper>
+        <WhatIsFPSWrapper id="what-is-fps">
             <FPSLeftDiv>
                 <FPSTitle>What is FPS?</FPSTitle>
-                <MainText id="what-is-fps">Frames Per Second (FPS) is a frequency rate at which consecutive images
+                <MainText>Frames Per Second (FPS) is a frequency rate at which consecutive images
                     called frames appear on a display. For example, if you see 30 images in a second, that means
                     that context (it may be video, game etc.) is 30 FPS.<br/><br/>
                     The more images you see in a context, the smoother quality you get. In video games, 30 FPS

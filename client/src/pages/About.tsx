@@ -6,7 +6,7 @@ import title from "../img/title.png";
 import WhatIsFPS from "../components/WhatIsFPS";
 import Footer from "../components/Footer";
 import FAQ from "../components/FAQ";
-import mainScreenTemplate from "../img/background-template/main-screen-background.png";
+import mainScreenTemplate from "../img/background-template/about-page-background.png";
 import headerTemplate from "../img/background-template/header-template.png";
 
 const MainDiv = styled.div`

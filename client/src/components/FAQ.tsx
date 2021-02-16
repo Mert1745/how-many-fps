@@ -49,7 +49,7 @@ const Answer = styled.label`
 
 const FAQ = () => {
     return (
-        <Wrapper>
+        <Wrapper id="faq">
             <FAQTitle>FAQ - Frequently Asked Questions</FAQTitle>
             <Question>Why Giraffe's Neck?</Question>
             <Answer>Initially we thought it would be HowManyFPS as you can understand from the source code but not

@@ -1,6 +1,6 @@
 import React from 'react';
-import mainGiraffe from "../img/temp-main-screen-giraffe.jpg";
 import styled from "styled-components";
+import mainGiraffe from "../img/main-giraffe-family.png";
 import title from "../img/title.png";
 import logo from "../img/logo.png";
 import Footer from "./Footer";
@@ -14,14 +14,22 @@ type Props = {
 
 const MainDiv = styled.div`
   display: flex;
+  flex-direction: column-reverse;
   min-height: 100vh;
   //background: #e0fcff;
   background-image: url(${template});
 
+  @media only screen and (min-width: 1200px) {
+    flex-direction: row;
+  }
 `
 
 const MainGiraffeImage = styled.img`
-  width: 40%;
+  width: 100%;
+
+  @media only screen and (min-width: 1200px) {
+    width: 35%;
+  }
 `
 
 const SearchDiv = styled.div`
@@ -29,14 +37,22 @@ const SearchDiv = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 15%;
+  margin-top: 25%;
+  margin-bottom: 25%;
+
+  @media only screen and (min-width: 1200px) {
+    margin-bottom: 0;
+    margin-top: 0;
+  }
 `
 
 const LogoWrapper = styled.div`
   display: flex;
-  width: 50%;
-  max-width: 50%;
-  margin: 0 auto 1rem auto;
+  width: 90%;
+  
+  @media only screen and (min-width: 1200px) {
+    width: 57%;
+  }
 `
 
 const TitleImage = styled.img`
@@ -53,37 +69,63 @@ const LogoImage = styled.img`
 
 const StyledInput = styled.input`
   display: block;
-  margin: 0 auto;
-  width: 50%;
-  height: 3.5rem;
-  font-size: 17px;
+  margin: 1rem auto 0 auto;
+  width: 70%;
+  height: 2rem;
+  font-size: 12px;
   font-family: PoppinsExtraLight, sans-serif;
   padding-left: 0.5rem;
   border: 1px solid;
   border-radius: 15px 1px;
   outline: none;
+
+  @media only screen and (min-width: 1200px) {
+    width: 50%;
+    height: 3.5rem;
+    font-size: 17px;
+  }
 `
 
 const IntroductionText = styled.p`
-  font-family: NanumGothicRegular, sans-serif;
-  font-size: 17px;
-  line-height: 1.5rem;
+  font-family: PoppinsExtraLight, sans-serif;
+  font-size: 11px;
+  color: darkslategrey;
+  font-weight: bold;
   text-align: center;
-  margin: 5% 20% 2%;
+  margin-top: 1rem;
+  width: 75%;
+
+  @media only screen and (min-width: 1200px) {
+    font-size: 15px;
+    line-height: 1.5rem;
+    width: 50%;
+  }
 `
 
 const DirectionsDiv = styled.nav`
   display: flex;
   cursor: pointer;
+  padding-top: 1rem;
+  outline: none;
+  
+  @media only screen and (min-width: 1200px) {
+    padding-top: 0;
+  }
 `
 
 const Link = styled.a`
   color: dimgrey;
   text-decoration: none;
-  font-size: 16px;
+  font-size: 12px;
+  font-family: PoppinsExtraLight,serif;
+  font-weight: bold;
 
   &:hover {
     text-decoration: underline;
+  }
+
+  @media only screen and (min-width: 1200px) {
+    font-size: 16px;
   }
 `
 
@@ -97,6 +139,8 @@ const OpeningScreen = (props: Props) => {
     return (
         <>
             <MainDiv>
+                {/*TODO mkose  bind to useState */}
+                {/*{window.screen.width > 768 && <MainGiraffeImage src={mainGiraffe} alt={"mainGiraffe"}/>}*/}
                 <MainGiraffeImage src={mainGiraffe} alt={"mainGiraffe"}/>
                 <SearchDiv>
                     <LogoWrapper>
