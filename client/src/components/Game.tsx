@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import styled from 'styled-components';
 import {GameType, PlatformName} from "../types/types";
 import {getPlatformFrameBar, getPlatformName, getPlatformsGiraffe} from "../types/utils";
@@ -26,12 +26,12 @@ const Wrapper = styled.div<{ numberOfPlatform: number }>`
   border-radius: 15px;
   width: 100%;
 
-  
+
   @media only screen and (min-width: 642px) {
     width: ${props => props.numberOfPlatform > 2 ? "100%" : "46%"};
     box-shadow: 5px 10px 8px #888888;
   }
-  
+
   @media only screen and (min-width: 1024px) {
     width: ${props => props.numberOfPlatform > 2 ? "100%" : "47%"};
   }
@@ -181,21 +181,31 @@ const InfoImage = styled.img`
 `
 
 const InfoDiv = styled.div`
-  border: 2px ridge;
+  border: 1px solid gray;
   background: ghostwhite;
-  font-size: 14px;
-  padding: 0.5rem;
+  font-size: 11px;
+  padding: 0.25rem 0.5rem;
   position: absolute;
-  left: -10%;
-  bottom: -30%;
-  border-radius: 10px 10px 10px 0;
-  white-space: nowrap;
+  bottom: 3rem;
+  right: 0;
+  border-radius: 10px 10px 0 10px;
   z-index: 20;
-  width: fit-content;
+  opacity: 0.95;
+  font-family: PoppinsExtraLight, serif;
+  font-weight: bold;
+  line-height: 0.9rem;
+
+  @media only screen and (min-width: 1024px) {
+    font-size: 13px;
+    padding: 0.5rem;
+    white-space: normal;
+    line-height: 1.1rem;
+  }
+
 `
 
 const Game = (props: GameProps) => {
-    const [infoTextSwitch, setInfoText] = useState(false);
+    const [infoTextSwitch, setInfoText] = useState("");
 
     return (
         <MainDiv>
@@ -219,10 +229,11 @@ const Game = (props: GameProps) => {
                                 <Bottom>
                                     <ResolutionText>{platform.resolution}</ResolutionText>
                                     {platform.info &&
-                                    <InfoImage src={infoIcon} onClick={() => setInfoText(!infoTextSwitch)}
-                                               onMouseOver={() => setInfoText(!infoTextSwitch)}
-                                               onMouseLeave={() => setInfoText(!infoTextSwitch)}/>}
-                                    {platform.info && infoTextSwitch && <InfoDiv>{platform.info}</InfoDiv>}
+                                    <InfoImage src={infoIcon}
+                                               onClick={() => setInfoText(infoTextSwitch !== platform.name + platform.info + platform.mode ? platform.name + platform.info + platform.mode : "")}
+                                    />}
+                                    {platform.info && infoTextSwitch === platform.name + platform.info + platform.mode &&
+                                    <InfoDiv><label>{platform.info}</label></InfoDiv>}
                                 </Bottom>
                             </PlatformColumn>
                         )}

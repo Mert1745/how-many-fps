@@ -166,8 +166,12 @@ const Giraffe = styled.img`
 
 const NotFoundText = styled.p`
   font-family: PoppinsExtraLight, serif;
-  font-size: 17px;
-  font-weight: bold;
+  font-size: 14px;
+
+  @media only screen and (min-width: 768px) {
+    font-size: 17px;
+    font-weight: bold;
+  }
 `
 
 const SearchScreen = (props: Props) => {

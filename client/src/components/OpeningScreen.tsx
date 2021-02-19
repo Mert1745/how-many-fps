@@ -29,6 +29,7 @@ const MainGiraffeImage = styled.img`
 
   @media only screen and (min-width: 1200px) {
     width: 35%;
+    margin: auto;
   }
 `
 
