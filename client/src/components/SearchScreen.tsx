@@ -36,10 +36,6 @@ const SearchDiv = styled.div`
   background-image: url(${headerTemplate});
   padding: 0.5rem;
   justify-content: space-between;
-
-  @media only screen and (min-width: 768px) {
-    justify-content: normal;
-  }
 `
 
 const LeftSideDiv = styled.div`
@@ -50,45 +46,53 @@ const LogoWrapper = styled.div`
   cursor: pointer;
   display: flex;
   margin: 0;
-
-  @media only screen and (min-width: 768px) {
-    width: 25%
-  }
 `
 
 const LogoImage = styled.img`
-  max-width: 15%;
+  max-width: 70px;
   margin-left: 0.5rem;
+  margin-top: auto;
+  margin-bottom: auto;
   border-radius: 15px 5px;
   box-shadow: -3px 6px 8px #888888;
   cursor: pointer;
-
-  @media only screen and (min-width: 768px) {
-    max-width: 4.5%;
+  
+  @media only screen and (min-width: 1366px) {
+    max-width: 100px;
   }
 `
 
 const TitleImage = styled.img`
-  max-width: 95%;
+  max-width: 200px;
   margin-top: auto;
   margin-bottom: auto;
   display: none;
-  
+
   @media only screen and (min-width: 768px) {
-   display: block;
+    display: flex;
+    margin-right: 0.3rem;
+  }
+  @media only screen and (min-width: 1366px) {
+    max-width: 300px;
+    margin: 0.5rem 1rem 0.5rem 0.5rem;
   }
 `
 
 const StyledInput = styled.input`
-  display: block;
   margin-top: auto;
   margin-bottom: auto;
   width: 80%;
-  height: 2.5rem;
+  height: 2rem;
   outline: none;
+  padding-left: 0.75rem;
+  font-family: PoppinsExtraLight, serif;
 
   @media only screen and (min-width: 768px) {
-    width: 25%;
+    width: 80%;
+  }
+  @media only screen and (min-width: 1366px) {
+    width: 220px;
+    height: 2.5rem;
   }
 `
 
@@ -100,12 +104,14 @@ const DirectionsDiv = styled.div`
   color: cadetblue;
   cursor: pointer;
   padding-right: 1rem;
-  font-size: 11px;
+  font-size: 13px;
   flex-direction: column;
 
-  @media only screen and (min-width: 768px) {
-    font-size: 17px;
+  @media only screen and (min-width: 450px) {
     flex-direction: row;
+  }
+  @media only screen and (min-width: 1366px) {
+    font-size: 17px;
   }
 `
 
@@ -124,7 +130,7 @@ const Divider = styled.span`
   padding-left: 0.5rem;
   padding-right: 0.5rem;
 
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 450px) {
     display: block;
   }
 `
@@ -136,7 +142,7 @@ const GameWrapper = styled.div`
 
   @media only screen and (min-width: 768px) {
     width: 96%;
-  } 
+  }
   @media only screen and (min-width: 1024px) {
     width: 85%;
     margin: 0 auto;
@@ -153,7 +159,7 @@ const GameNotFound = styled.div`
   text-align: center;
   padding-left: 1rem;
   padding-right: 1rem;
-  
+
   @media only screen and (min-width: 768px) {
     padding-left: 0;
     padding-right: 0;

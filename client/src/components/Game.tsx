@@ -233,7 +233,7 @@ const Game = (props: GameProps) => {
                                                onClick={() => setInfoText(infoTextSwitch !== platform.name + platform.info + platform.mode ? platform.name + platform.info + platform.mode : "")}
                                     />}
                                     {platform.info && infoTextSwitch === platform.name + platform.info + platform.mode &&
-                                    <InfoDiv><label>{platform.info}</label></InfoDiv>}
+                                    <InfoDiv>{platform.info}</InfoDiv>}
                                 </Bottom>
                             </PlatformColumn>
                         )}
