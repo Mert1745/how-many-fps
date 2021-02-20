@@ -37,7 +37,7 @@ const LogoWrapper = styled.div`
 `
 
 const LogoImage = styled.img`
-  width: 60px; 
+  width: 60px;
   margin-left: 0.5rem;
   border-radius: 15px 5px;
   box-shadow: -3px 6px 8px #888888;
@@ -46,11 +46,11 @@ const LogoImage = styled.img`
   @media only screen and (min-width: 450px) {
     width: 75px;
   }
-  
+
   @media only screen and (min-width: 768px) {
     width: 6.5%;
   }
-  
+
   @media only screen and (min-width: 1366px) {
     width: 4.5%;
   }
@@ -105,9 +105,13 @@ const About = () => {
             <AboutSite>
                 <h1>About</h1>
                 <label>With the 9th generation console releases, games have started to offer more different resolution
-                    and FPS. Most of the games have different values. And some of them now offers you different graphic
-                    options. So we thought we could collect all these games and values into one website to track
-                    easily.
+                    and FPS values. And some of them now offers you different graphic options which you can prefer to
+                    play with higher resolution or FPS. So we thought we could collect as much games and values as
+                    possible into one website to track easily.
+                    <br/><br/>
+                    This project is basically free-time hobby project and has any intent to make money or something.
+                    More information regarding the project, games and values have been given in the below FAQ section.
+                    Have a nice day gamer fellows!
                 </label>
             </AboutSite>
             <FAQ/>

@@ -67,17 +67,18 @@ const FAQ = () => {
             <Question>Some games have more than two modes but I can only see two modes (performance and
                 quality).</Question>
             <Answer>Even though it's so rare, there are scenarios like this. If it has, the game should have an info
-                icon that tells this situation</Answer>
+                icon that tells this situation.</Answer>
             <Question>Some games are not always 60 FPS (or 30 or 120) but the site says otherwise.</Question>
             <Answer>Initially we thought every game is either one of 30, 60 or 120 FPS but some aren't so we added info
-                icon that tells this situation if it has</Answer>
+                icon that tells this situation if it has. We are considering to add other fps visuals.</Answer>
             <Question>I can't see the game I'm curious about</Question>
             <Answer>Unfortunately not every game playable on PlayStation 5 and/or Xbox Series X|S can be found our
-                website. Because of backward compatibility feature of consoles, there are lots of games you can
-                play. Since we don't have any kit or tool to test we basically are </Answer>
-            <Question>In some games, I see weird values. How can a game have 1876p resolution?</Question>
+                website. Thanks to backward compatibility feature, there are lots of games you can
+                play on new consoles. Since we don't have any kit or tool to test we basically are dependent to sources
+                internet provided. In any case, feel free to tell us.</Answer>
+            <Question>I see weird values on some games. How can a game have 1876p resolution?</Question>
             <Answer>In order to get stable FPS most games frequently use dynamic resolution, which changes resolution
-                from scene to scene. Because some scenes have quite a lot objects to render. We didn't want to show
+                from scene to scene. Some scenes could have quite a lot objects to render. We didn't want to show
                 minimum and maximum resolution. Instead we decided to show average resolution, which you can understand
                 from the tilde sign(~).</Answer>
             <Question>Are these resolution values native resolution or upscaled resolution?</Question>
