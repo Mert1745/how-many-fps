@@ -107,7 +107,7 @@ const DirectionsDiv = styled.div`
   font-size: 13px;
   flex-direction: column;
 
-  @media only screen and (min-width: 450px) {
+  @media only screen and (min-width: 520px) {
     flex-direction: row;
   }
   @media only screen and (min-width: 1366px) {
@@ -130,7 +130,7 @@ const Divider = styled.span`
   padding-left: 0.5rem;
   padding-right: 0.5rem;
 
-  @media only screen and (min-width: 450px) {
+  @media only screen and (min-width: 520px) {
     display: block;
   }
 `
