@@ -20,8 +20,7 @@ const Main = () => {
             clearTimeout(myTimeout);
         }
         myTimeout = setTimeout(() => {
-            // TODO mkose is hardcoded "localhost" text a good approach?
-            fetch(process.env.PUBLIC_URL + "/getGamesByName", {
+            fetch(process.env.REACT_APP_URL + "/getGamesByName", {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({name: value.target.value})
