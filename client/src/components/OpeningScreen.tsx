@@ -140,8 +140,6 @@ const OpeningScreen = (props: Props) => {
     return (
         <>
             <MainDiv>
-                {/*TODO mkose  bind to useState */}
-                {/*{window.screen.width > 768 && <MainGiraffeImage src={mainGiraffe} alt={"mainGiraffe"}/>}*/}
                 <MainGiraffeImage src={mainGiraffe} alt={"mainGiraffe"}/>
                 <SearchDiv>
                     <LogoWrapper>
