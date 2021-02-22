@@ -30,7 +30,7 @@ const Main = () => {
                 const list = responseData.body as GameType[];
                 setGameList(list);
             });
-        }, 700);
+        }, 400);
     }
 
     return (

@@ -5,8 +5,9 @@ import org.springframework.data.mongodb.repository.Query;
 
 import java.util.List;
 
-public interface GameRepository extends MongoRepository<Game, String> {
+public interface GameRepository extends MongoRepository<Game, Long> {
     Game findGameByName(String name);
+    Long deleteByName(String name);
 
     @Query(value = "{'name': {$regex : ?0, $options: 'i'}}")
     List<Game> findByNameRegex(String name);

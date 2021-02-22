@@ -49,6 +49,7 @@ const SearchDiv = styled.div`
 
 const LogoWrapper = styled.div`
   display: flex;
+  align-items: flex-start;
   width: 90%;
   
   @media only screen and (min-width: 1200px) {
@@ -57,13 +58,13 @@ const LogoWrapper = styled.div`
 `
 
 const TitleImage = styled.img`
-  max-width: 80%;
+  width: 80%;
   margin-top: auto;
   margin-bottom: auto;
 `
 
 const LogoImage = styled.img`
-  max-width: 20%;
+  width: 20%;
   border-radius: 15px 5px;
   box-shadow: -3px 6px 8px #888888;
 `

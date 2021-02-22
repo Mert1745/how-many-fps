@@ -80,6 +80,11 @@ public class GameController {
         repository.save(game);
     }
 
+    @DeleteMapping(path = "/deleteGame")
+    public String deleteGameByName(@RequestBody Game game) {
+        return repository.deleteByName(game.getName()) != 0 ? "Success" : "Fail";
+    }
+
     @GetMapping("/image/{id}")
     public ResponseEntity<byte[]> image(@PathVariable String id) {
         Game game = repository.findById(id).orElseThrow();
@@ -100,7 +105,6 @@ public class GameController {
                 .header(HttpHeaders.CONTENT_TYPE, mediaType.toString())
                 .body(game.image);
     }
-
 }
 
 class GameResponse {

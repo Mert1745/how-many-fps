@@ -5,7 +5,7 @@ import backgroundTemplate from "../img/background-template/what-is-fps-backgroun
 
 
 const WhatIsFPSWrapper = styled.section`
-  font-family: PoppinsExtraLight, sans-serif;
+  font-family: PoppinsExtraLight, serif;
   background-image: url(${backgroundTemplate});
   display: flex;
   flex-direction: column;
@@ -21,7 +21,7 @@ const WhatIsFPSWrapper = styled.section`
 const FPSLeftDiv = styled.div`
   display: flex;
   flex-direction: column;
-  font-family: PoppinsExtraLight, sans-serif;
+  font-family: PoppinsExtraLight, serif;
   padding-right: 10%;
   padding-top: 3%;
   @media only screen and (min-width: 1024px) {
