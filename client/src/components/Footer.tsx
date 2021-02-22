@@ -24,7 +24,8 @@ const Wrapper = styled.div`
 const LeftDiv = styled.div`
   display: flex;
   flex-direction: column;
-  font-family: NanumGothicRegular, serif;
+  font-family: PoppinsExtraLight, serif;
+  font-weight: bold;
   margin-top: auto;
   margin-bottom: auto;
 

@@ -13,13 +13,6 @@
   font-style: normal;
 }
 
-@font-face {
-  font-family: "NanumGothicRegular";
-  src: local("NanumGothicRegular"),
-  url("./fonts/NanumGothic-Regular.ttf") format("truetype");
-  font-weight: normal;
-}
-
 html {
   scroll-behavior: smooth;
 }
