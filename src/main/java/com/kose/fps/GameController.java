@@ -65,4 +65,9 @@ public class GameController {
         game.setImage(image);
         repository.save(game);
     }
+
+    @DeleteMapping(path = "/deleteGame")
+    public String deleteGameByName(@RequestBody Game game) {
+        return repository.deleteByName(game.getName()) != 0 ? "Success" : "Fail";
+    }
 }
