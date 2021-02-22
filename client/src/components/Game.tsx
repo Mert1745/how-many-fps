@@ -213,7 +213,7 @@ const Game = (props: GameProps) => {
             props.gameList?.map(game =>
                 <Wrapper numberOfPlatform={game.platform.length}>
                     <LeftBlock numberOfPlatform={game.platform.length}>
-                        <GameCoverImage src={"data:image/jpg;base64, " + game.image} alt={game.name}/>
+                        <GameCoverImage src={`${process.env.REACT_APP_URL}/image/${game.id}`} alt={game.name}/>
                         <GameNameText>{game.name}</GameNameText>
                     </LeftBlock>
                     <RightBlock numberOfPlatform={game.platform.length}>

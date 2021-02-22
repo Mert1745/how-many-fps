@@ -2,14 +2,25 @@ package com.kose.fps;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.InvalidMediaTypeException;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.net.URI;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 //TODO mkose CrossOrigin'i düzelt
 @CrossOrigin("*")
@@ -22,15 +33,17 @@ public class GameController {
     }
 
     @PostMapping(path = "/getGamesByName", produces = MediaType.APPLICATION_JSON_VALUE)
-    public FPSResponseBuilder<List<Game>> getGamesByName(@RequestBody Game game) {
+    public FPSResponseBuilder<List<GameResponse>> getGamesByName(@RequestBody Game game) {
         List<Game> gameList = repository.findByNameRegex(String.format(".*%s.*", game.getName()));
 
         Collections.shuffle(gameList);
         sortListByPlatformSize(gameList);
         if (gameList.isEmpty()) {
-            return FPSResponseBuilder.<List<Game>>getInstance().status(HttpStatus.NOT_FOUND).body(null);
+            return FPSResponseBuilder.<List<GameResponse>>getInstance().status(HttpStatus.NOT_FOUND).body(null);
         }
-        return FPSResponseBuilder.<List<Game>>getInstance().status(HttpStatus.OK).body(gameList);
+        return FPSResponseBuilder.<List<GameResponse>>getInstance().status(HttpStatus.OK).body(
+                gameList.stream().map(GameResponse::new).collect(Collectors.toList())
+        );
     }
 
 
@@ -63,11 +76,45 @@ public class GameController {
         mapper.configure(JsonParser.Feature.ALLOW_UNQUOTED_FIELD_NAMES, true);
         Game game = mapper.readValue(json, Game.class);
         game.setImage(image);
+        game.setMediaType(file.getContentType());
         repository.save(game);
     }
 
     @DeleteMapping(path = "/deleteGame")
     public String deleteGameByName(@RequestBody Game game) {
         return repository.deleteByName(game.getName()) != 0 ? "Success" : "Fail";
+    }
+
+    @GetMapping("/image/{id}")
+    public ResponseEntity<byte[]> image(@PathVariable String id) {
+        Game game = repository.findById(id).orElseThrow();
+
+        if (game.image == null || game.image.length == 0) {
+            return ResponseEntity.status(HttpStatus.TEMPORARY_REDIRECT)
+                    .location(URI.create("/game/default.png"))
+                    .build();
+        }
+
+        MediaType mediaType;
+        try {
+            mediaType = MediaType.parseMediaType(game.mediaType);
+        } catch (InvalidMediaTypeException e) {
+            mediaType = MediaType.APPLICATION_OCTET_STREAM;
+        }
+        return ResponseEntity.ok()
+                .header(HttpHeaders.CONTENT_TYPE, mediaType.toString())
+                .body(game.image);
+    }
+}
+
+class GameResponse {
+    public final String id;
+    public final String name;
+    public final List<Platform> platform;
+
+    public GameResponse(Game game) {
+        this.id = game.id;
+        this.name = game.name;
+        this.platform = game.getPlatform();
     }
 }
