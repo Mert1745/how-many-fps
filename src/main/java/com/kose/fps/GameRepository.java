@@ -5,7 +5,7 @@ import org.springframework.data.mongodb.repository.Query;
 
 import java.util.List;
 
-public interface GameRepository extends MongoRepository<Game, Long> {
+public interface GameRepository extends MongoRepository<Game, String> {
     Game findGameByName(String name);
     Long deleteByName(String name);
 
