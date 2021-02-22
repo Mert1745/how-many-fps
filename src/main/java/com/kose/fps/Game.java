@@ -12,6 +12,7 @@ public class Game {
     public String id;
     public String name;
     public byte[] image;
+    public String mediaType;
     public List<Platform> platform = new ArrayList<>();
 
     public Game() {
@@ -39,6 +40,14 @@ public class Game {
 
     public void setImage(byte[] image) {
         this.image = image;
+    }
+
+    public String getMediaType() {
+        return mediaType;
+    }
+
+    public void setMediaType(String mediaType) {
+        this.mediaType = mediaType;
     }
 
     public List<Platform> getPlatform() {
