@@ -11,11 +11,12 @@ import headerTemplate from "../img/background-template/header-template.png";
 
 const MainDiv = styled.div`
   background-image: url(${mainScreenTemplate});
-  font-family: PoppinsExtraLight, sans-serif;
+  font-family: PoppinsExtraLight, serif;
 `
 
 const HeaderWrapper = styled.div`
   display: flex;
+  align-items: flex-start;
 `
 
 const SearchDiv = styled.div`
@@ -29,6 +30,7 @@ const SearchDiv = styled.div`
 const LogoWrapper = styled.div`
   cursor: pointer;
   display: flex;
+  align-items: flex-start;
   margin: 0;
 
   @media only screen and (min-width: 768px) {
@@ -57,7 +59,7 @@ const LogoImage = styled.img`
 `
 
 const TitleImage = styled.img`
-  max-width: 100%;
+  width: 100%;
   margin-top: auto;
   margin-bottom: auto;
 

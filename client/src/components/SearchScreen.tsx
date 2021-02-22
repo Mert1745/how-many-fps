@@ -26,6 +26,7 @@ const MainDiv = styled.div`
 `
 const SearchDivWrapper = styled.div`
   display: flex;
+  align-items: flex-start;
 `
 
 const SearchDiv = styled.div`
@@ -49,7 +50,7 @@ const LogoWrapper = styled.div`
 `
 
 const LogoImage = styled.img`
-  max-width: 70px;
+  width: 70px;
   margin-left: 0.5rem;
   margin-top: auto;
   margin-bottom: auto;
@@ -58,12 +59,12 @@ const LogoImage = styled.img`
   cursor: pointer;
   
   @media only screen and (min-width: 1366px) {
-    max-width: 100px;
+    width: 100px;
   }
 `
 
 const TitleImage = styled.img`
-  max-width: 200px;
+  width: 200px;
   margin-top: auto;
   margin-bottom: auto;
   display: none;
@@ -73,7 +74,7 @@ const TitleImage = styled.img`
     margin-right: 0.3rem;
   }
   @media only screen and (min-width: 1366px) {
-    max-width: 300px;
+    width: 300px;
     margin: 0.5rem 1rem 0.5rem 0.5rem;
   }
 `
@@ -167,7 +168,7 @@ const GameNotFound = styled.div`
 `
 
 const Giraffe = styled.img`
-  max-width: 100px;
+  width: 100px;
 `
 
 const NotFoundText = styled.p`

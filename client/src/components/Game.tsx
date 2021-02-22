@@ -54,16 +54,16 @@ const GameCoverImage = styled.img`
 `
 
 const GameNameText = styled.p`
-  font-family: PoppinsExtraLight, sans-serif;
+  font-family: PoppinsExtraLight, serif;
   font-size: 11px;
   font-weight: bold;
   text-align: center;
-  max-width: 80px;
+  width: 80px;
 
   @media only screen and (min-width: 1024px) {
     font-size: 14px;
     //margin: auto;
-    max-width: 120px;
+    width: 120px;
   }
 `
 
@@ -92,7 +92,7 @@ const PlatformNameDiv = styled.div<{ name: PlatformName }>`
   margin: 0 auto;
   padding: 0.25rem 0.5rem 0.25rem 0.5rem;
   font-size: 12px;
-  font-family: PoppinsExtraLight, sans-serif;
+  font-family: PoppinsExtraLight, serif;
 
   @media only screen and (min-width: 1024px) {
     padding: 0.35rem 0.75rem 0.35rem 0.75rem;
@@ -124,8 +124,8 @@ const GameModeDiv = styled.div`
 `
 
 const Center = styled.div`
-  height: 50%;
   display: flex;
+  align-items: flex-start;
   flex-direction: row;
   margin: 0.5rem auto;
 `
@@ -159,12 +159,12 @@ const Bottom = styled.div`
 `
 
 const ResolutionText = styled.p`
-  font-family: PoppinsExtraLight, sans-serif;
+  font-family: PoppinsExtraLight, serif;
   display: flex;
   font-weight: bold;
   font-size: 15px;
   letter-spacing: 2px;
-  border: 2px ridge;
+  border: 1px solid gray;
   padding: 0 1rem;
 
   @media only screen and (min-width: 1024px) {

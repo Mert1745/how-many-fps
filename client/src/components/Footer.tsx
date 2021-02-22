@@ -2,7 +2,7 @@ import React from 'react';
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  font-family: PoppinsExtraLight, sans-serif;
+  font-family: PoppinsExtraLight, serif;
   display: flex;
   background-color: white;
   justify-content: space-between;

@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './fonts/Poppins-ExtraLight.ttf';
+import './fonts/Poppins-Light.ttf';
 import './fonts/NanumGothic-Regular.ttf';
 
 ReactDOM.render(
