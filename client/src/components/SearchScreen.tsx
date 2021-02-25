@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef, useState} from 'react';
 import styled from "styled-components";
 import title from "../img/title.png";
 import Game from "./Game";
@@ -8,6 +8,7 @@ import Footer from "./Footer";
 import headerTemplate from "../img/background-template/header-template.png";
 import backgroundTemplate from "../img/background-template/main-screen-background.png";
 import ps5_30fps_giraffe from "../img/giraffes/ps5_30fps.png";
+import crossIcon from "../img/cross-icon.png";
 
 
 type Props = {
@@ -57,7 +58,7 @@ const LogoImage = styled.img`
   border-radius: 15px 5px;
   box-shadow: -3px 6px 8px #888888;
   cursor: pointer;
-  
+
   @media only screen and (min-width: 1366px) {
     width: 100px;
   }
@@ -78,22 +79,43 @@ const TitleImage = styled.img`
     margin: 0.5rem 1rem 0.5rem 0.5rem;
   }
 `
-
-const StyledInput = styled.input`
+const InputWrapper = styled.div`
+  width: 80%;
   margin-top: auto;
   margin-bottom: auto;
-  width: 80%;
+  position: relative;
+
+  @media only screen and (min-width: 1366px) {
+    width: 220px;
+    height: 2.5rem;
+  }
+`
+
+const StyledInput = styled.input`
+  width: 100%;
   height: 2rem;
   outline: none;
   padding-left: 0.75rem;
   font-family: PoppinsExtraLight, serif;
 
-  @media only screen and (min-width: 768px) {
-    width: 80%;
-  }
   @media only screen and (min-width: 1366px) {
     width: 220px;
     height: 2.5rem;
+  }
+`
+
+const CrossIcon = styled.img`
+  position: absolute;
+  width: 0.75rem;
+  right: 0;
+  top: 0.25rem;
+  cursor: pointer;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0.5rem;
+
+  @media only screen and (min-width: 1366px) {
+    top: 0.5rem;
   }
 `
 
@@ -182,6 +204,14 @@ const NotFoundText = styled.p`
 `
 
 const SearchScreen = (props: Props) => {
+    const [inputValue, setInputValue] = useState(props.inputValue);
+    const inputRef = useRef<HTMLInputElement>(null);
+
+    function onCrossIconClick() {
+        setInputValue("");
+        inputRef.current?.focus();
+    }
+
     return (
         <>
             <MainDiv>
@@ -192,9 +222,19 @@ const SearchScreen = (props: Props) => {
                             <LogoWrapper onClick={() => window.location.href = ""}>
                                 <TitleImage src={title} alt="title"/>
                             </LogoWrapper>
-                            <StyledInput onChange={value => props.onInputChange(value)}
-                                         placeholder="search for games"
-                                         autoFocus={true} defaultValue={props.inputValue}/>
+                            <InputWrapper>
+                                <StyledInput onChange={value => {
+                                    props.onInputChange(value);
+                                    setInputValue(value.target.value);
+                                }}
+                                             type="text"
+                                             ref={inputRef}
+                                             value={inputValue}
+                                             placeholder="search for games"
+                                             autoFocus={true} defaultValue={props.inputValue}/>
+                                {inputValue !== "" &&
+                                <CrossIcon src={crossIcon} alt="cross-icon" onClick={() => onCrossIconClick()}/>}
+                            </InputWrapper>
                         </LeftSideDiv>
                         <DirectionsDiv>
                             <Link href={"/about"}>About & FAQ</Link>
